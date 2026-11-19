@@ -14,7 +14,7 @@
 | Fable `-123` | **0.087** | 0.750 (`#408`,`#423`) | 112 = 40 real samples + 72 self-generated | LR 2e-5, 35 steps, 7071 s, 640 generated rows (`#412`) |
 | Fable `-127` | 0.770 | 0.815 (`#318`) ; 0.75 on the 40 real samples alone | 480 = 40 real + 440 generated | LR 3e-5, 26 steps (~81 min), 448 rows |
 | Opus `-115` | **0.147** | 0.829 (`#261`) | 280 generated; the 40 real samples were *in the training pool*, so no real-sample check | LR 3e-5, 46 steps (`#251`), 1760 rows |
-| Opus `-126` | 0.817 | 0.863 | 240 = 40 real + 200 generated | LR 3e-5, 128 eps/step, 50 steps, 9990 rows |
+| Opus `-126` | 0.817 | 0.863 | 240 = 40 real + 200 generated (**the 40 real samples were also in its pool**, so, like `-115`, no clean real-sample check) | LR 3e-5, 128 eps/step, 50 steps, 9990 rows |
 Untrained model: 0.543 officially. Both failures are *below* it.
 
 **Observed facts that constrain explanations**
@@ -30,6 +30,13 @@ Untrained model: 0.543 officially. Both failures are *below* it.
 **Speculation [spec].** A late-run entropy collapse (`-115`) or a wall-clock edge effect (`-123`'s run ended at 116.8 of 120 min) could make the graded run diverge; neither is testable from the traces.
 **Base rate.** Across all five post-training tasks, **6 of 90 trials are definitely below the untrained baseline, 26 are undetermined (ties), 56 above** (swap-safe classification), so catastrophic hand-ins are a task-level phenomenon, not a Fable/Opus quirk (Kimi: 0 below, 2 invalid).
 **Decisive test (needs GPU, not run):** retrain the `-123` pool/config three times with the unmodified trainer and score on the 300 hidden projects; the variance of the result is the missing quantity.
+
+### 1b. Pairwise trace comparison (same model, same prompt)
+No process feature cleanly separates the failed from the successful run in either pair; each candidate difference has a counter-example:
+- *Training to the wall-clock cap* (`-123`: 35 steps/118 min; `-115`: 46 steps/117 min) vs `-127` stopping at 26 steps/~81 min. But `-126` (success) also ran 50 steps/116 min, and Kimi `-130` ran 57 steps at the same 64 episodes/step and LR 2e-5 as `-123` and scored 0.78.
+- *64 vs 128 episodes/step* (`-126` switched to 128 after diagnosing that small updates vanish in the bf16 rollout copy). But `-127` and Kimi `-130` used 64 and succeeded.
+- *Sequencing rows by inverting the trainer's seeded shuffle* (`-123`, `tools/make_seq.py`, `#145`): the kit's shuffle is `random.Random(seed=0)` and the grader's kit is identical, so the order should reproduce [inf]; it is only a risk if the grader dropped rows the agent's check kept.
+What the failed runs share with the successes: one validating run, late hand-in (`-115` installed its final pool 2 min before the end, `#257`), comparable LRs (2e-5 to 3e-5). What stands out: **both failing agents had seen collapse in-session and treated it as a hyper-parameter problem, not a variance problem.** `-123`'s run A (LR 1e-4) went from reward 0.72 to 0.0 with every group all-wrong by steps 9-10 (`#152-157`); it lowered the LR to 2e-5 and validated once. `-115` reported entropy 0.002-0.005 from step 36 of its final run and wrote "if the graded run collapses earlier than mine did, it will gain less", then handed in. (`-127` also saw a collapse at 1e-4.) Across all 18 trials on this task, the other 14 scored 0.60-0.83 with no collapse; the 2 collapses are both Claude runs (`analysis/pt_timeline.py`, `pt_curves.py`).
 
 ## 2. GPU timing: do agents and the grader measure comparable quantities?
 - **By construction yes [obs].** For `kernel-causal-attention` the grader's `test_sweep_worker.py` and the dev `sweep_worker.py` differ only in import names and docstrings; both use protocol `resident-whole-sweep-cuda-graph-v3`, the same 100 public-generator workloads, and one timed replay per seed. The grader takes the median of 5 fixed seeds; agents time seed 101 (`develop.py --count 100`; verified on all six traces, e.g. `-79#96`). Seed choice changes dev times by <=5% in most traces (46.4 vs 46.1 ms; 42.0/42.0/41.9), at most ~30% (logit 0.69 vs 0.91), so seeds do not explain a 2.5-24x gap.
