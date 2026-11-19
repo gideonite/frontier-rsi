@@ -1,0 +1,154 @@
+[
+ {
+  "trial_id": "pt-multifile-numpy-rl-qwen3-4b-b92c3884-123",
+  "model": "fireworks/kimi-k3p1-pro",
+  "raw": 0.5,
+  "hits": [
+   {
+    "step": 9,
+    "intent": true,
+    "code": "args):\n    ns = {\"np\": np}\n    exec(src, ns)\n    with np.errstate(all=\"ignore\"):\n        return ns[name](*args)\n\n\ndef select_indexes(flags, need, wanted_fail=None, rng=None):\n    good = [i for i, f in enumerate(flags) if f]\n    bad = [i for i, f in enumerate(flags) if not f]\n    rng = rng or random.Random(0)\n    rng.shuffle(good); rng.shuffle(bad)\n    if wanted_fail is None:\n        return good[:need]\n    nf = min(wanted_fail, len(bad))\n    return bad[:nf] + good[:need -"
+   }
+  ]
+ },
+ {
+  "trial_id": "pt-interfaceport-easy-rl-qwen3-4b-efa84048-136",
+  "model": "anthropic/claude-opus-5-5",
+  "raw": 0.3167,
+  "hits": [
+   {
+    "step": 97,
+    "intent": false,
+    "code": "HINTS:\n                row[\"prompt\"] = hinted(t[\"params\"], HINTS[v])\n            rows.append(row)\n    if a.samples:\n        for line in open(\"/app/data/samples.jsonl\"):\n            s = json.loads(line)\n            rows.append({\"id\": s[\"id\"], \"params\": s[\"params\"], \"difficulty\": \"plain\"})\n    random.Random(0).shuffle(rows)\n    import os\n    os.makedirs(a.out, exist_ok=True)\n    with open(os.path.join(a.out, \"pool.jsonl\"), \"w\") as f:\n        for r in rows:\n        "
+   }
+  ]
+ },
+ {
+  "trial_id": "pt-chained-rl-qwen3-4b-a0c2f2c0-134",
+  "model": "meta-public/muse-wonder-1.0",
+  "raw": 0.1667,
+  "hits": [
+   {
+    "step": 40,
+    "intent": false,
+    "code": "python3 << 'PY'\nimport json, random\nrows=[json.loads(l) for l in open('/app/work/gen/pool_generated.jsonl')]\nby={}\nfor r in rows: by.setdefault(r['difficulty'],[]).append(r)\nsel=[]\nfor d in ['easy','medium','hard','expert']:\n    sel += by[d][:6]\nrandom.Random(0).shuffle(sel)\nwith open('/tmp/gen_items.jsonl','w') as f:\n    for r in sel: f.write(json.dumps(r)+\"\\n\")\nprint(len(sel))\nPY\ntimeout 1200 python3 /app/score.py "
+   }
+  ]
+ },
+ {
+  "trial_id": "pt-chained-rl-qwen3-4b-a0c2f2c0-135",
+  "model": "meta-public/muse-wonder-1.0",
+  "raw": 0.4633,
+  "hits": [
+   {
+    "step": 71,
+    "intent": false,
+    "code": ")])\n            row = gen.build_row(d, diff, random.Random(seed+1), helpers=helpers)\n            if row is None: continue\n            row[\"id\"] = f\"train2-{b.__name__}-{diff}-{got}\"\n            rows.append(row); got+=1\n        print(b.__name__, diff, got, flush=True)\nprint('rows', len(rows))\nrandom.Random(0).shuffle(rows)\nwith open('/app/work/pool_v2.jsonl','w') as f:\n    for r in rows: f.write(json.dumps(r)+\"\\n\")\nPY\npython3 /app/work/make_pool_v2.py 2>&1 | tail "
+   }
+  ]
+ },
+ {
+  "trial_id": "pt-chained-rl-qwen3-4b-a0c2f2c0-125",
+  "model": "anthropic/claude-opus-5-5",
+  "raw": 0.1133,
+  "hits": [
+   {
+    "step": 1230,
+    "intent": false,
+    "code": "s = []\nfor f in files:\n    for l in open(f):\n        if l.strip():\n            r = json.loads(l)\n            if r[\"difficulty\"] in (\"easy\", \"medium\"):\n                rows.append({\"params\": r[\"params\"], \"difficulty\": r[\"difficulty\"]})\nprint(len(files), \"files\", len(rows), \"easy/medium rows\")\nrandom.Random(0).shuffle(rows)\nrows = rows[:200]\nwith open(\"/app/work/rows/eval2.jsonl\", \"w\") as f:\n    for r in rows: f.write(json.dumps(r) + \"\\n\")\nfrom collections import C"
+   }
+  ]
+ },
+ {
+  "trial_id": "pt-chained-rl-qwen3-4b-a0c2f2c0-126",
+  "model": "anthropic/claude-opus-5-5",
+  "raw": 0.1333,
+  "hits": [
+   {
+    "step": 1274,
+    "intent": false,
+    "code": "\",\"))\n\n\ndef first_message(params, v):\n    p = instructions(params)\n    if v.get(\"replace\"):\n        assert v[\"replace\"][0] in p\n        p = p.replace(v[\"replace\"][0], v[\"replace\"][1])\n    return p + v.get(\"append\", \"\")\n\n\nrows = []\nfor p in a.rows:\n    rows += [json.loads(l) for l in open(p)]\nrandom.Random(a.seed).shuffle(rows)\nout, srcs = [], set()\nfor r in rows:\n    src = r.get(\"meta\", {}).get(\"source\", \"?\")\n    if src in excl:\n        continue\n    srcs.add(src)\n    "
+   }
+  ]
+ },
+ {
+  "trial_id": "pt-multifile-rl-qwen3-4b-bc320a8a-123",
+  "model": "anthropic/claude-fable-5-2",
+  "raw": 0.0867,
+  "hits": [
+   {
+    "step": 145,
+    "intent": true,
+    "code": "#!/usr/bin/env python3\n\"\"\"Build a sequenced pool from the histories of earlier runs.\n\nThe trainer groups the pool rows by label, shuffles each group with random.Random(0) and then walks through it in\norder, so with a single label the file order (after inverting that shuffle) is exactly the order of use: 4 rows per\nstep at 32 episodes / 8 generations.\n\n  make_seq.py --hist WORK [--hist WORK2 ...] --fresh POOL.jsonl [--fre"
+   },
+   {
+    "step": 211,
+    "intent": true,
+    "code": " {'episodes_per_step': a.eps, 'num_generations': 8, 'temperature': 1.0, 'learning_rate': a.lr}\n    if a.max_steps:\n        cfg = {'max_steps': a.max_steps, **cfg}\n    (out / 'config.json').write_text(json.dumps(cfg, indent=1))\n    pool, r0 = [json.loads(l) for l in open(out / 'pool.jsonl')], random.Random(0)\n    r0.shuffle(pool)\n    assert [key_of(p['params']) for p in pool] == [r['key'] for r in seq], 'order check failed'\n    used_k = {}\n    for r in seq:\n        used_"
+   },
+   {
+    "step": 250,
+    "intent": true,
+    "code": " {'episodes_per_step': a.eps, 'num_generations': 8, 'temperature': 1.0, 'learning_rate': a.lr}\n    if a.max_steps:\n        cfg = {'max_steps': a.max_steps, **cfg}\n    (out / 'config.json').write_text(json.dumps(cfg, indent=1))\n    pool, r0 = [json.loads(l) for l in open(out / 'pool.jsonl')], random.Random(0)\n    r0.shuffle(pool)\n    assert [key_of(p['params']) for p in pool] == [r['key'] for r in seq], 'order check failed'\n    assert len({r['key'] for r in seq}) == len("
+   },
+   {
+    "step": 384,
+    "intent": true,
+    "code": " else {})}\n\n\ndef write(name, seq, cfg):\n    rows = invert_shuffle(seq)\n    with open('/app/work/pools/%s/pool.jsonl' % name, 'w') as f:\n        for r in rows:\n            f.write(json.dumps(clean(r)) + '\\n')\n    pool = [json.loads(l) for l in open('/app/work/pools/%s/pool.jsonl' % name)]\n    random.Random(0).shuffle(pool)\n    assert [key_of(p['params']) for p in pool] == [key_of(r['params']) for r in seq], 'order check failed'\n    assert all(bool(p.get('prompt'))"
+   }
+  ]
+ },
+ {
+  "trial_id": "pt-multifile-rl-qwen3-4b-bc320a8a-115",
+  "model": "anthropic/claude-opus-5-5",
+  "raw": 0.1467,
+  "hits": [
+   {
+    "step": 194,
+    "intent": false,
+    "code": "e:\n        b = 'lo' if k == 0 else 'hi' if k == n else 'm1' if k == 1 else 'm23'\n    lab = f'{lvl}_{b}'\n    row = {'id': iid, 'difficulty': lab, 'params': it['params']}\n    for key in ('eval', 'env'):\n        if key in it:\n            row[key] = it[key]\n    rows.append(row)\n    cnt[lab] += 1\nrandom.Random(0).shuffle(rows)\nos.makedirs(a.out, exist_ok=True)\nwith open(os.path.join(a.out, 'pool.jsonl'), 'w') as f:\n    for r in rows:\n        f.write(json.dumps(r) + '\\"
+   }
+  ]
+ },
+ {
+  "trial_id": "pt-multifile-rl-qwen3-4b-bc320a8a-124",
+  "model": "xai-public/grok-4.7",
+  "raw": 0.6333,
+  "hits": [
+   {
+    "step": 58,
+    "intent": false,
+    "code": "isinstance(n, ast.Name) and isinstance(n.ctx, ast.Load) and n.id in local]\n    # cap replacements\n    reps = []\n    for n in name_nodes:\n        for other in local:\n            if other != n.id:\n                reps.append((n.lineno, n.col_offset, n.id, other))\n    if len(reps) > 80:\n        random.Random(0).shuffle(reps)\n        reps = reps[:80]\n    for lineno, col, old, other in reps:\n        t = copy.deepcopy(tree)\n        for m in ast.walk(t):\n            if "
+   }
+  ]
+ },
+ {
+  "trial_id": "pt-multifile-scipy-rl-qwen3-4b-62aae32b-121",
+  "model": "meta-public/muse-wonder-1.0",
+  "raw": 0.4267,
+  "hits": [
+   {
+    "step": 55,
+    "intent": false,
+    "code": "python3 - << 'PY'\nimport json, random\nrows=[json.loads(l) for l in open('/app/rl_pool/pool.jsonl')]\nfrom collections import defaultdict\nby=defaultdict(list)\nfor r in rows: by[r['difficulty']].append(r)\nsub=[]\nfor k,v in by.items(): sub.extend(v[:40])\nrandom.Random(0).shuffle(sub)\nimport os, shutil\nos.makedirs('/tmp/trial_pool', exist_ok=True)\nopen('/tmp/trial_pool/pool.jsonl','w').write(\"\\n\".join(json.dumps(r) for r in su"
+   },
+   {
+    "step": 59,
+    "intent": false,
+    "code": "python3 - << 'PY'\nimport json, sys, tempfile, os, importlib, random\nsys.path.insert(0,'/app/posttrain-kit')\nimport warnings; warnings.filterwarnings('ignore')\nfrom rl_evalgen.sandbox import decode, encode, same\nrows=[json.loads(l) for l in open('/tmp/candidate_pool.jsonl')]\nrandom.Random(0).shuffle(rows)\nrows=rows[:40]\ndef fails(r):\n    files=r['params']['files']; tmp=tempfile.mkdtemp()\n    for n,s in files.items(): open(os.path.join(tmp,n),'w')"
+   }
+  ]
+ },
+ {
+  "trial_id": "pt-multifile-numpy-rl-qwen3-4b-b92c3884-118",
+  "model": "meta-public/muse-wonder-1.0",
+  "raw": 0.3633,
+  "hits": [
+   {
+    "step": 46,
+    "intent": false,
+    "code": "python3 - << 'PY' 2>/dev/null\nimport json, random\nimport sys\nsys.path.insert(0,'/app/posttrain-kit')\nfrom rl_evalgen.project_env import grade\nfrom rl_evalgen.sandbox import run_project\nrows=[json.loads(l) for l in open('/tmp/pool_v1.jsonl')]\nrandom.Random(0).shuffle(rows)\nfrom collections import Counter\nc=Counter(); fn_counter=Counter()\nfor r in rows[:80]:\n    p=r['params']; g=grade(p, p['files'])\n    nfail=sum(1"
+   }
+  ]
+ }
+]
