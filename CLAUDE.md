@@ -17,3 +17,7 @@
   as a network secret (no token needed in curl).
 - oddish API (public share token in README of the HF dataset): `/api/public/experiments/<share>/results` and
   `/api/public/experiments/<share>/trials/<id>/trajectory`.
+
+## Analysis layer (added later)
+- `DATA_SUMMARY.md` (inventory, limitations), `FINDINGS.md` (results), `analysis/` (scripts; `analysis/trace/` = loader/features/outcome/brief viewer), `figures/`.
+- Quantitative work covers only the `claude-code` harness (Fable 5.2, Opus 5.5, Kimi K3.1 Pro). Fable has almost no message/reasoning text. No paid LLM annotation has been run.

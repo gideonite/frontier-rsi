@@ -1,0 +1,159 @@
+{
+ "avail": {
+  "anthropic/claude-fable-5-2": {
+   "trials": 54,
+   "agent_steps": 11481,
+   "with_message": 108,
+   "with_reasoning_content": 0,
+   "thinking_tokens_field_present": 11469,
+   "thinking_tokens_gt0": 10290,
+   "with_timestamp": 11481
+  },
+  "fireworks/kimi-k3p1-pro": {
+   "trials": 54,
+   "agent_steps": 9446,
+   "with_message": 3299,
+   "with_reasoning_content": 8106,
+   "thinking_tokens_field_present": 9443,
+   "thinking_tokens_gt0": 0,
+   "with_timestamp": 9446
+  },
+  "xai-public/grok-4.7": {
+   "trials": 54,
+   "agent_steps": 15409,
+   "with_message": 13914,
+   "with_reasoning_content": 4994,
+   "thinking_tokens_field_present": 0,
+   "thinking_tokens_gt0": 0,
+   "with_timestamp": 0
+  },
+  "gemini/gemini-4-carbon": {
+   "trials": 54,
+   "agent_steps": 5463,
+   "with_message": 1035,
+   "with_reasoning_content": 3928,
+   "thinking_tokens_field_present": 0,
+   "thinking_tokens_gt0": 0,
+   "with_timestamp": 5463
+  },
+  "meta-public/muse-wonder-1.0": {
+   "trials": 54,
+   "agent_steps": 4798,
+   "with_message": 1106,
+   "with_reasoning_content": 1506,
+   "thinking_tokens_field_present": 0,
+   "thinking_tokens_gt0": 0,
+   "with_timestamp": 4798
+  },
+  "openai/gpt-6-astra": {
+   "trials": 54,
+   "agent_steps": 13253,
+   "with_message": 4774,
+   "with_reasoning_content": 0,
+   "thinking_tokens_field_present": 0,
+   "thinking_tokens_gt0": 0,
+   "with_timestamp": 13253
+  },
+  "openai/gpt-6.1-sol": {
+   "trials": 54,
+   "agent_steps": 17561,
+   "with_message": 5416,
+   "with_reasoning_content": 0,
+   "thinking_tokens_field_present": 0,
+   "thinking_tokens_gt0": 0,
+   "with_timestamp": 17561
+  },
+  "gemini/gemini-4-argon": {
+   "trials": 54,
+   "agent_steps": 8391,
+   "with_message": 1796,
+   "with_reasoning_content": 4876,
+   "thinking_tokens_field_present": 0,
+   "thinking_tokens_gt0": 0,
+   "with_timestamp": 8391
+  },
+  "anthropic/claude-opus-5-5": {
+   "trials": 54,
+   "agent_steps": 10749,
+   "with_message": 1247,
+   "with_reasoning_content": 267,
+   "thinking_tokens_field_present": 10744,
+   "thinking_tokens_gt0": 8873,
+   "with_timestamp": 10749
+  }
+ },
+ "sig": {
+  "anthropic/claude-fable-5-2": {
+   "cmd_not_found": 18,
+   "oom": 108,
+   "timeout": 256,
+   "traceback": 262,
+   "tool_use_error": 63,
+   "killed": 8
+  },
+  "fireworks/kimi-k3p1-pro": {
+   "cmd_not_found": 17,
+   "oom": 30,
+   "timeout": 136,
+   "traceback": 291,
+   "tool_use_error": 64,
+   "killed": 0
+  },
+  "xai-public/grok-4.7": {
+   "cmd_not_found": 26,
+   "oom": 34,
+   "timeout": 77,
+   "traceback": 364,
+   "tool_use_error": 0,
+   "killed": 0
+  },
+  "gemini/gemini-4-carbon": {
+   "cmd_not_found": 9,
+   "oom": 59,
+   "timeout": 108,
+   "traceback": 243,
+   "tool_use_error": 0,
+   "killed": 1
+  },
+  "meta-public/muse-wonder-1.0": {
+   "cmd_not_found": 1,
+   "oom": 26,
+   "timeout": 58,
+   "traceback": 150,
+   "tool_use_error": 0,
+   "killed": 0
+  },
+  "openai/gpt-6-astra": {
+   "cmd_not_found": 0,
+   "oom": 74,
+   "timeout": 92,
+   "traceback": 119,
+   "tool_use_error": 0,
+   "killed": 0
+  },
+  "openai/gpt-6.1-sol": {
+   "cmd_not_found": 0,
+   "oom": 91,
+   "timeout": 125,
+   "traceback": 193,
+   "tool_use_error": 0,
+   "killed": 0
+  },
+  "gemini/gemini-4-argon": {
+   "cmd_not_found": 8,
+   "oom": 53,
+   "timeout": 87,
+   "traceback": 444,
+   "tool_use_error": 0,
+   "killed": 3
+  },
+  "anthropic/claude-opus-5-5": {
+   "cmd_not_found": 19,
+   "oom": 72,
+   "timeout": 162,
+   "traceback": 217,
+   "tool_use_error": 2,
+   "killed": 0
+  }
+ }
+}

@@ -1,0 +1,479 @@
+[
+ {
+  "trial_id": "kernel-parameter-update-1af334d1-78",
+  "task": "kernel-parameter-update",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 0.373376,
+  "official_ms": 3.271552085876465,
+  "ambiguous": false,
+  "ratio": 8.76208456321902
+ },
+ {
+  "trial_id": "kernel-parameter-update-1af334d1-79",
+  "task": "kernel-parameter-update",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 0.158496,
+  "official_ms": 2.9314239025115967,
+  "ambiguous": false,
+  "ratio": 18.4952547856829
+ },
+ {
+  "trial_id": "kernel-parameter-update-1af334d1-74",
+  "task": "kernel-parameter-update",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 0.306,
+  "official_ms": 2.984895944595337,
+  "ambiguous": false,
+  "ratio": 9.754561910442277
+ },
+ {
+  "trial_id": "kernel-parameter-update-1af334d1-75",
+  "task": "kernel-parameter-update",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 0.2009,
+  "official_ms": 3.025376081466675,
+  "ambiguous": false,
+  "ratio": 15.059114392566824
+ },
+ {
+  "trial_id": "kernel-parameter-update-1af334d1-62",
+  "task": "kernel-parameter-update",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 0.2169,
+  "official_ms": 3.001215934753418,
+  "ambiguous": false,
+  "ratio": 13.83686461389312
+ },
+ {
+  "trial_id": "kernel-parameter-update-1af334d1-63",
+  "task": "kernel-parameter-update",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 0.578,
+  "official_ms": 2.9839680194854736,
+  "ambiguous": false,
+  "ratio": 5.16257442817556
+ },
+ {
+  "trial_id": "kernel-single-query-attention-d3eccf8a-75",
+  "task": "kernel-single-query-attention",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 2.168,
+  "official_ms": 9.902560234069824,
+  "ambiguous": false,
+  "ratio": 4.5676015839805455
+ },
+ {
+  "trial_id": "kernel-single-query-attention-d3eccf8a-76",
+  "task": "kernel-single-query-attention",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 2.245344,
+  "official_ms": 9.779264450073242,
+  "ambiguous": false,
+  "ratio": 4.355352431553135
+ },
+ {
+  "trial_id": "kernel-single-query-attention-d3eccf8a-71",
+  "task": "kernel-single-query-attention",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 2.243,
+  "official_ms": 9.625280380249023,
+  "ambiguous": false,
+  "ratio": 4.2912529559737065
+ },
+ {
+  "trial_id": "kernel-single-query-attention-d3eccf8a-72",
+  "task": "kernel-single-query-attention",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 2.286,
+  "official_ms": 9.776800155639648,
+  "ambiguous": false,
+  "ratio": 4.276815466159076
+ },
+ {
+  "trial_id": "kernel-rectangular-matrix-workload-3f15da50-75",
+  "task": "kernel-rectangular-matrix-workload",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 0.337312,
+  "official_ms": 3.573791980743408,
+  "ambiguous": false,
+  "ratio": 10.594915036356277
+ },
+ {
+  "trial_id": "kernel-rectangular-matrix-workload-3f15da50-76",
+  "task": "kernel-rectangular-matrix-workload",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 0.375648,
+  "official_ms": 3.5646400451660156,
+  "ambiguous": false,
+  "ratio": 9.489309260706873
+ },
+ {
+  "trial_id": "kernel-single-query-attention-d3eccf8a-59",
+  "task": "kernel-single-query-attention",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 2.1429,
+  "official_ms": 9.617759704589844,
+  "ambiguous": false,
+  "ratio": 4.488198098179963
+ },
+ {
+  "trial_id": "kernel-single-query-attention-d3eccf8a-60",
+  "task": "kernel-single-query-attention",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 1.7015,
+  "official_ms": 9.216575622558594,
+  "ambiguous": false,
+  "ratio": 5.4167355995054915
+ },
+ {
+  "trial_id": "kernel-rectangular-matrix-workload-3f15da50-71",
+  "task": "kernel-rectangular-matrix-workload",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 0.395,
+  "official_ms": 3.546015977859497,
+  "ambiguous": false,
+  "ratio": 8.977255640150625
+ },
+ {
+  "trial_id": "kernel-rectangular-matrix-workload-3f15da50-72",
+  "task": "kernel-rectangular-matrix-workload",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 0.369,
+  "official_ms": 3.503200054168701,
+  "ambiguous": false,
+  "ratio": 9.493767084468026
+ },
+ {
+  "trial_id": "kernel-projected-state-attention-1dc231ca-79",
+  "task": "kernel-projected-state-attention",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 1.485312,
+  "official_ms": 3.4987521171569824,
+  "ambiguous": true,
+  "ratio": 2.3555671247232786
+ },
+ {
+  "trial_id": "kernel-projected-state-attention-1dc231ca-80",
+  "task": "kernel-projected-state-attention",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 1.57,
+  "official_ms": 3.332159996032715,
+  "ambiguous": false,
+  "ratio": 2.1223949019316652
+ },
+ {
+  "trial_id": "kernel-rectangular-matrix-workload-3f15da50-59",
+  "task": "kernel-rectangular-matrix-workload",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 0.395,
+  "official_ms": 3.441823959350586,
+  "ambiguous": false,
+  "ratio": 8.71347837810275
+ },
+ {
+  "trial_id": "kernel-rectangular-matrix-workload-3f15da50-61",
+  "task": "kernel-rectangular-matrix-workload",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 0.332,
+  "official_ms": 3.396928071975708,
+  "ambiguous": false,
+  "ratio": 10.231711060167795
+ },
+ {
+  "trial_id": "kernel-projected-state-attention-1dc231ca-75",
+  "task": "kernel-projected-state-attention",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 1.44,
+  "official_ms": 3.228991985321045,
+  "ambiguous": true,
+  "ratio": 2.242355545361837
+ },
+ {
+  "trial_id": "kernel-projected-state-attention-1dc231ca-76",
+  "task": "kernel-projected-state-attention",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 1.42,
+  "official_ms": 3.2929599285125732,
+  "ambiguous": false,
+  "ratio": 2.3189858651496995
+ },
+ {
+  "trial_id": "kernel-masked-attention-f47487a3-76",
+  "task": "kernel-masked-attention",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 20.9,
+  "official_ms": 61.08863830566406,
+  "ambiguous": false,
+  "ratio": 2.9229013543379936
+ },
+ {
+  "trial_id": "kernel-projected-state-attention-1dc231ca-63",
+  "task": "kernel-projected-state-attention",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 1.491,
+  "official_ms": 3.444767951965332,
+  "ambiguous": false,
+  "ratio": 2.3103742132564262
+ },
+ {
+  "trial_id": "kernel-projected-state-attention-1dc231ca-64",
+  "task": "kernel-projected-state-attention",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 0.502,
+  "official_ms": 2.3540799617767334,
+  "ambiguous": false,
+  "ratio": 4.689402314296282
+ },
+ {
+  "trial_id": "kernel-masked-attention-f47487a3-71",
+  "task": "kernel-masked-attention",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 18.69,
+  "official_ms": 53.58038330078125,
+  "ambiguous": false,
+  "ratio": 2.866794184097445
+ },
+ {
+  "trial_id": "kernel-masked-attention-f47487a3-72",
+  "task": "kernel-masked-attention",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 18.0,
+  "official_ms": 52.68345642089844,
+  "ambiguous": false,
+  "ratio": 2.9268586900499134
+ },
+ {
+  "trial_id": "kernel-logit-selection-73e8d9d0-73",
+  "task": "kernel-logit-selection",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 0.9097,
+  "official_ms": 11.217727661132812,
+  "ambiguous": true,
+  "ratio": 12.331238497452802
+ },
+ {
+  "trial_id": "kernel-logit-selection-73e8d9d0-76",
+  "task": "kernel-logit-selection",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 0.849408,
+  "official_ms": 13.009759902954102,
+  "ambiguous": false,
+  "ratio": 15.316267215465478
+ },
+ {
+  "trial_id": "kernel-masked-attention-f47487a3-59",
+  "task": "kernel-masked-attention",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 17.68,
+  "official_ms": 54.53014373779297,
+  "ambiguous": false,
+  "ratio": 3.0842841480652132
+ },
+ {
+  "trial_id": "kernel-masked-attention-f47487a3-60",
+  "task": "kernel-masked-attention",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 17.92,
+  "official_ms": 52.72547149658203,
+  "ambiguous": false,
+  "ratio": 2.942269614764622
+ },
+ {
+  "trial_id": "kernel-logit-selection-73e8d9d0-71",
+  "task": "kernel-logit-selection",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 0.83,
+  "official_ms": 2.6430718898773193,
+  "ambiguous": true,
+  "ratio": 3.184423963707614
+ },
+ {
+  "trial_id": "kernel-logit-selection-73e8d9d0-72",
+  "task": "kernel-logit-selection",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 0.863,
+  "official_ms": 3.4586238861083984,
+  "ambiguous": false,
+  "ratio": 4.007675418433834
+ },
+ {
+  "trial_id": "kernel-logit-selection-73e8d9d0-59",
+  "task": "kernel-logit-selection",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 0.68,
+  "official_ms": 4.628448009490967,
+  "ambiguous": true,
+  "ratio": 6.806541190427892
+ },
+ {
+  "trial_id": "kernel-logit-selection-73e8d9d0-60",
+  "task": "kernel-logit-selection",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 0.848,
+  "official_ms": 3.40012788772583,
+  "ambiguous": false,
+  "ratio": 4.009584773261592
+ },
+ {
+  "trial_id": "kernel-independent-matrix-workload-819e685d-77",
+  "task": "kernel-independent-matrix-workload",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 0.392736,
+  "official_ms": 9.254143714904785,
+  "ambiguous": true,
+  "ratio": 23.563268238472627
+ },
+ {
+  "trial_id": "kernel-independent-matrix-workload-819e685d-78",
+  "task": "kernel-independent-matrix-workload",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 0.533088,
+  "official_ms": 7.515071868896484,
+  "ambiguous": false,
+  "ratio": 14.097244486644765
+ },
+ {
+  "trial_id": "kernel-independent-matrix-workload-819e685d-73",
+  "task": "kernel-independent-matrix-workload",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 0.33,
+  "official_ms": 7.851808071136475,
+  "ambiguous": true,
+  "ratio": 23.79335779132265
+ },
+ {
+  "trial_id": "kernel-independent-matrix-workload-819e685d-74",
+  "task": "kernel-independent-matrix-workload",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 0.34,
+  "official_ms": 8.411392211914062,
+  "ambiguous": false,
+  "ratio": 24.73938885857077
+ },
+ {
+  "trial_id": "kernel-independent-matrix-workload-819e685d-61",
+  "task": "kernel-independent-matrix-workload",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 0.2588,
+  "official_ms": 57.12704086303711,
+  "ambiguous": true,
+  "ratio": 220.7381795326009
+ },
+ {
+  "trial_id": "kernel-independent-matrix-workload-819e685d-62",
+  "task": "kernel-independent-matrix-workload",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 0.323,
+  "official_ms": 7.658688068389893,
+  "ambiguous": false,
+  "ratio": 23.71110857086654
+ },
+ {
+  "trial_id": "kernel-fragmented-state-attention-be51e0e8-75",
+  "task": "kernel-fragmented-state-attention",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 1.4751,
+  "official_ms": 0.9971519708633423,
+  "ambiguous": true,
+  "ratio": 0.6759894046934731
+ },
+ {
+  "trial_id": "kernel-fragmented-state-attention-be51e0e8-77",
+  "task": "kernel-fragmented-state-attention",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 1.507,
+  "official_ms": 1.1229439973831177,
+  "ambiguous": false,
+  "ratio": 0.745151955795035
+ },
+ {
+  "trial_id": "kernel-fragmented-state-attention-be51e0e8-72",
+  "task": "kernel-fragmented-state-attention",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 1.46,
+  "official_ms": 0.8881279826164246,
+  "ambiguous": true,
+  "ratio": 0.60830683740851
+ },
+ {
+  "trial_id": "kernel-fragmented-state-attention-be51e0e8-73",
+  "task": "kernel-fragmented-state-attention",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 1.41,
+  "official_ms": 0.9798399806022644,
+  "ambiguous": false,
+  "ratio": 0.6949219720583436
+ },
+ {
+  "trial_id": "kernel-causal-attention-c34931f5-79",
+  "task": "kernel-causal-attention",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 46.01,
+  "official_ms": 111.97401428222656,
+  "ambiguous": true,
+  "ratio": 2.4336886390399166
+ },
+ {
+  "trial_id": "kernel-causal-attention-c34931f5-81",
+  "task": "kernel-causal-attention",
+  "model": "fireworks/kimi-k3p1-pro",
+  "claimed_ms": 52.04,
+  "official_ms": 123.9200668334961,
+  "ambiguous": false,
+  "ratio": 2.3812464802747138
+ },
+ {
+  "trial_id": "kernel-fragmented-state-attention-be51e0e8-60",
+  "task": "kernel-fragmented-state-attention",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 1.056,
+  "official_ms": 0.5534399747848511,
+  "ambiguous": false,
+  "ratio": 0.5240908852129271
+ },
+ {
+  "trial_id": "kernel-fragmented-state-attention-be51e0e8-61",
+  "task": "kernel-fragmented-state-attention",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 1.098,
+  "official_ms": 0.634880006313324,
+  "ambiguous": false,
+  "ratio": 0.5782149419975627
+ },
+ {
+  "trial_id": "kernel-causal-attention-c34931f5-76",
+  "task": "kernel-causal-attention",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 41.6,
+  "official_ms": 104.29011535644531,
+  "ambiguous": false,
+  "ratio": 2.5069739268376274
+ },
+ {
+  "trial_id": "kernel-causal-attention-c34931f5-77",
+  "task": "kernel-causal-attention",
+  "model": "anthropic/claude-fable-5-2",
+  "claimed_ms": 41.5,
+  "official_ms": 103.43433380126953,
+  "ambiguous": false,
+  "ratio": 2.49239358557276
+ },
+ {
+  "trial_id": "kernel-causal-attention-c34931f5-64",
+  "task": "kernel-causal-attention",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 43.39,
+  "official_ms": 105.60758209228516,
+  "ambiguous": false,
+  "ratio": 2.4339152360517438
+ },
+ {
+  "trial_id": "kernel-causal-attention-c34931f5-65",
+  "task": "kernel-causal-attention",
+  "model": "anthropic/claude-opus-5-5",
+  "claimed_ms": 43.49,
+  "official_ms": 106.63897705078125,
+  "ambiguous": false,
+  "ratio": 2.4520344228737927
+ }
+]
