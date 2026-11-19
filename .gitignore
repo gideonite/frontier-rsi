@@ -1,3 +1,9 @@
 .DS_Store
 __pycache__/
 *.pyc
+
+# Trajectory data (private; fetched via scripts/fetch_data.sh)
+data/
+
+# Secrets
+.env
