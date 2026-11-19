@@ -42,6 +42,15 @@ for (model, task), rs in groups.items():
             raw_score=raw, raw_score_ambiguous=ambiguous, input_tokens=tm['input_tokens'], output_tokens=tm['output_tokens'],
             cost_usd=tm['cost_usd'], started_at=tm['started_at'], finished_at=tm['finished_at'],
             trajectory_path='data/hf/' + r['path'], sha256=r['sha256']))
+# FIX: ambiguity is a property of the CELL. When both trials tie on reward and have different raw values, either assignment is possible,
+# so BOTH trials are ambiguous (the loop above only flagged the first one assigned).
+cells = collections.defaultdict(list)
+for o in out: cells[(o['model'], o['task_full'])].append(o)
+amb = 0
+for rs in cells.values():
+    if len(rs) == 2 and abs(rs[0]['reward'] - rs[1]['reward']) < 1e-9 and rs[0]['raw_score'] != rs[1]['raw_score']:
+        for o in rs: o['raw_score_ambiguous'] = True
+amb = sum(o['raw_score_ambiguous'] for o in out)
 with open('data/trials.jsonl', 'w') as f:
     for o in out: f.write(json.dumps(o) + '\n')
-print(len(out), 'trials; reward unmatched:', miss, 'ambiguous raw:', amb, 'missing raw:', sum(o['raw_score'] is None for o in out))
+print(len(out), 'trials; reward unmatched:', miss, 'ambiguous raw (trials, both of each tied cell):', amb, 'missing raw:', sum(o['raw_score'] is None for o in out))

@@ -15,7 +15,7 @@ everything reads `data/trials.jsonl` (one row/trial, built by `scripts/build_dat
 | field | meaning | caveat |
 |---|---|---|
 | `reward` | official FrontierRSI reward (relative to best valid trial from any model) | **zero-inflated**: 322/486 exactly 0, 28 exactly 1; useless for ranking weak runs |
-| `raw_score` | task metric (ms, tok/s, loss, fraction solved...) | not in the oddish trial rows; joined from the leaderboard `data.js` by (model, task, reward). **134 rows `raw_score_ambiguous=True`** (both trials of a cell tie on reward, so the two raw values may be swapped); **13 rows have no raw (None, i.e. invalid/failed, not 0)** |
+| `raw_score` | task metric (ms, tok/s, loss, fraction solved...) | not in the oddish trial rows; joined from the leaderboard `data.js` by (model, task, reward). **268 rows `raw_score_ambiguous=True` (134 cells; corrected from an earlier 134)**: both trials of a cell tie on reward and have different raw values, so the two raw values may be swapped between them. Not resolvable deterministically (id-order heuristic right in 92% of checkable cells); excluding them conditions on outcome, so prefer the swap-invariant cell-mean analysis (`analysis/cell_level.py`); **13 rows have no raw (None, i.e. invalid/failed, not 0)** |
 | `q` (ours, `analysis/trace/outcome.py`) | closeness to best raw in [0,1]: best/raw (minimise) or raw/best (maximise) | undefined when raw is None; "best" is the best across all models so q is relative to this leaderboard, not to a true optimum |
 | `status`, `outcome` | harbor stage / pass-fail | 3 trials have harbor status `failed` (cause not recorded), trajectories still present |
 | tokens, `cost_usd` | per trial | Kimi costs are estimated, not billed |

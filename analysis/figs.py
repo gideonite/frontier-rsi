@@ -27,8 +27,10 @@ R = [x for x in json.load(open('/home/user/frontier-rsi/analysis/out/selfreport_
 fig, ax = plt.subplots(figsize=(6.5, 5.5)); tasks = sorted({x['task'] for x in R}); cm = plt.get_cmap('tab10')
 for i, t in enumerate(tasks):
     xs = [x for x in R if x['task'] == t]
-    ax.scatter([x['claimed_ms'] for x in xs], [x['official_ms'] for x in xs], color=cm(i), label=t.replace('kernel-', ''), s=28)
+    for x in xs:   # hollow = raw score tie-ambiguous within its cell (pairing of claimed<->official may be swapped)
+        ax.scatter(x['claimed_ms'], x['official_ms'], facecolors='none' if x['ambiguous'] else cm(i), edgecolors=cm(i), s=30)
+    ax.scatter([], [], color=cm(i), label=t.replace('kernel-', ''), s=30)
 lim = [0.15, 70]; ax.plot(lim, lim, 'k--', lw=.8); ax.set_xscale('log'); ax.set_yscale('log')
 ax.set_xlabel("agent's own final-report sweep time (ms, regex-extracted)"); ax.set_ylabel('official score (ms)')
-ax.set_title('GPU-kernel tasks: self-measured vs official time (dashed: equal)\nofficial is slower by 2–24× in 7 of 9 tasks', fontsize=9); ax.legend(fontsize=7)
+ax.set_title('GPU-kernel tasks: self-measured vs official time (dashed: equal)\nhollow = pairing ambiguous; in 5 tasks official ≈ dev + constant', fontsize=9); ax.legend(fontsize=7)
 fig.tight_layout(); fig.savefig('/home/user/frontier-rsi/figures/selfreport_vs_official_kernels.png', dpi=130); print('ok')

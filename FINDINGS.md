@@ -1,5 +1,7 @@
 # FINDINGS: how LLM agents conduct research on FrontierRSI (initial pass)
 
+> **UPDATE (see `MEMO.md` §0-§2).** This first pass contained an error and three claims that were revised: (1) ambiguous raw scores are **268 trials / 134 cells**, not 134 trials (both trials of a tied cell are ambiguous); numbers below that say "non-ambiguous" were recomputed in `MEMO.md`/`analysis/robustness.py`. (2) Finding 1's *within-model* null is under-powered (42 cells), the between-model association survives a swap-invariant cell-level test. (3) Finding 2's explanation ("validation representativeness") is **retracted**: the traces support "one unobserved training run per candidate" instead. (4) Finding 3 is refined: official = dev + a per-task constant in 5 tasks, which compresses rewards. The text below is left as originally written except for this banner.
+
 Scope: 162 `claude-code`-harness trajectories (Fable 5.2, Opus 5.5, Kimi K3.1 Pro; 27 tasks x 2 trials each) with outcome `q` = closeness to best raw score (see `DATA_SUMMARY.md`).
 Other harnesses were not analysed. n=2 per (model, task); all CIs are task-cluster bootstrap. Observation, inference and speculation are labelled. Evidence cited as `trial_id#step` (`analysis/trace/brief.py`).
 **No LLM-judge annotation was run** (see Phase 5 below); all qualitative readings are mine and are hypotheses.
@@ -9,7 +11,7 @@ Other harnesses were not analysed. n=2 per (model, task); all CIs are task-clust
 2. **Self-validation fidelity separates runs better than anything we measured about process.** In `pt-multifile-rl`, the two collapsed trials reported 0.75 and 0.83 solved on their own held-out sets but scored 0.087 and 0.147 officially (the untrained baseline is 0.543); the two good trials reported 0.815 / 0.863 and scored 0.77 / 0.82. n=4, mechanism unresolved (below).
 3. **In kernel tasks the agent's own dev measurement is on a different scale from the official score, by a task-specific factor of 2-24x, and in some tasks it saturates**: all six `kernel-logit-selection` trials report 0.68-0.91 ms (a 1.3x range) while their official scores span 2.6-13.0 ms (5x). Within-task, the dev number still ranks trials partly correctly (rho -0.43 [-0.70,-0.11], n=53). `figures/selfreport_vs_official_kernels.png`.
 
-Strongest limitations: n=2 per cell; model confounded with harness; 134/486 raw scores are tie-ambiguous; reasoning text absent for Fable (1% of steps have any message); our experiment classifier is ~2/3 precise; no causal manipulation.
+Strongest limitations: n=2 per cell; model confounded with harness; 268/486 raw scores are tie-ambiguous; reasoning text absent for Fable (1% of steps have any message); our experiment classifier is ~2/3 precise; no causal manipulation.
 Highest-value next experiment: see Q5.
 
 ---

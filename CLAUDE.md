@@ -10,7 +10,7 @@
 - Unified table: `data/trials.jsonl` (one row per trial: model, task, reward, outcome, raw_score, tokens, cost,
   trajectory_path). Rebuild: `python3 -I scripts/build_dataset.py` from repo root.
 - Caveats: `reward` is exact (from oddish). `raw_score` comes from the leaderboard and is joined by (model, task,
-  reward); `raw_score_ambiguous=True` means two trials tied on reward so the raw value may be swapped. 13 trials
+  reward); `raw_score_ambiguous=True` means the cell's two trials tied on reward with different raw values, so raw may be swapped (BOTH trials flagged: 268 trials/134 cells). Dropping them biases toward good runs; use cell means (`analysis/cell_level.py`). 13 trials
   have no raw (invalid/failed). The 28 nop_oracle baseline trials have no trajectories. grok-4.7 steps lack timestamps.
 - Download gotcha: HF `resolve/main/...` redirects large files to `us.aws.cdn.hf.co`; use `curl -L`, and that host
   must be in the environment network allowlist (already added to env `frontier-rsi`). HF auth is injected by the proxy
@@ -21,3 +21,5 @@
 ## Analysis layer (added later)
 - `DATA_SUMMARY.md` (inventory, limitations), `FINDINGS.md` (results), `analysis/` (scripts; `analysis/trace/` = loader/features/outcome/brief viewer), `figures/`.
 - Quantitative work covers only the `claude-code` harness (Fable 5.2, Opus 5.5, Kimi K3.1 Pro). Fable has almost no message/reasoning text. No paid LLM annotation has been run.
+
+- `MEMO.md` (follow-up): pt-multifile-rl case study (grader retrains from scratch; cause of 0.087/0.147 undetermined, trainer/pool/distribution ruled out), ambiguity analysis, kernel dev-vs-official = per-task constant offset. Decisive missing experiment: retrain the failed pool 3x (needs GPU).

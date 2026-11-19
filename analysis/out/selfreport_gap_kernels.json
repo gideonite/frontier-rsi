@@ -158,7 +158,7 @@
   "model": "fireworks/kimi-k3p1-pro",
   "claimed_ms": 1.57,
   "official_ms": 3.332159996032715,
-  "ambiguous": false,
+  "ambiguous": true,
   "ratio": 2.1223949019316652
  },
  {
@@ -194,7 +194,7 @@
   "model": "anthropic/claude-fable-5-2",
   "claimed_ms": 1.42,
   "official_ms": 3.2929599285125732,
-  "ambiguous": false,
+  "ambiguous": true,
   "ratio": 2.3189858651496995
  },
  {
@@ -203,7 +203,7 @@
   "model": "fireworks/kimi-k3p1-pro",
   "claimed_ms": 20.9,
   "official_ms": 61.08863830566406,
-  "ambiguous": false,
+  "ambiguous": true,
   "ratio": 2.9229013543379936
  },
  {
@@ -257,7 +257,7 @@
   "model": "fireworks/kimi-k3p1-pro",
   "claimed_ms": 0.849408,
   "official_ms": 13.009759902954102,
-  "ambiguous": false,
+  "ambiguous": true,
   "ratio": 15.316267215465478
  },
  {
@@ -293,7 +293,7 @@
   "model": "anthropic/claude-fable-5-2",
   "claimed_ms": 0.863,
   "official_ms": 3.4586238861083984,
-  "ambiguous": false,
+  "ambiguous": true,
   "ratio": 4.007675418433834
  },
  {
@@ -311,7 +311,7 @@
   "model": "anthropic/claude-opus-5-5",
   "claimed_ms": 0.848,
   "official_ms": 3.40012788772583,
-  "ambiguous": false,
+  "ambiguous": true,
   "ratio": 4.009584773261592
  },
  {
@@ -329,7 +329,7 @@
   "model": "fireworks/kimi-k3p1-pro",
   "claimed_ms": 0.533088,
   "official_ms": 7.515071868896484,
-  "ambiguous": false,
+  "ambiguous": true,
   "ratio": 14.097244486644765
  },
  {
@@ -347,7 +347,7 @@
   "model": "anthropic/claude-fable-5-2",
   "claimed_ms": 0.34,
   "official_ms": 8.411392211914062,
-  "ambiguous": false,
+  "ambiguous": true,
   "ratio": 24.73938885857077
  },
  {
@@ -365,7 +365,7 @@
   "model": "anthropic/claude-opus-5-5",
   "claimed_ms": 0.323,
   "official_ms": 7.658688068389893,
-  "ambiguous": false,
+  "ambiguous": true,
   "ratio": 23.71110857086654
  },
  {
@@ -383,7 +383,7 @@
   "model": "fireworks/kimi-k3p1-pro",
   "claimed_ms": 1.507,
   "official_ms": 1.1229439973831177,
-  "ambiguous": false,
+  "ambiguous": true,
   "ratio": 0.745151955795035
  },
  {
@@ -401,7 +401,7 @@
   "model": "anthropic/claude-fable-5-2",
   "claimed_ms": 1.41,
   "official_ms": 0.9798399806022644,
-  "ambiguous": false,
+  "ambiguous": true,
   "ratio": 0.6949219720583436
  },
  {
@@ -419,7 +419,7 @@
   "model": "fireworks/kimi-k3p1-pro",
   "claimed_ms": 52.04,
   "official_ms": 123.9200668334961,
-  "ambiguous": false,
+  "ambiguous": true,
   "ratio": 2.3812464802747138
  },
  {

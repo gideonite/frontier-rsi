@@ -1,0 +1,42 @@
+{
+ "kernel-causal-attention": {
+  "n": 4,
+  "cv_dev": 0.02226901581043448,
+  "cv_off": 0.011675184797520497,
+  "cv_offset": 0.0074063524055732214,
+  "cv_ratio": 0.011946061766328668,
+  "offset_median": 62.45384872436523
+ },
+ "kernel-masked-attention": {
+  "n": 4,
+  "cv_dev": 0.020775103255363365,
+  "cv_off": 0.01413294035143321,
+  "cv_offset": 0.02531358563405553,
+  "cv_ratio": 0.02699213486747654,
+  "offset_median": 34.84792739868164
+ },
+ "kernel-parameter-update": {
+  "n": 6,
+  "cv_dev": 0.4613284574069277,
+  "cv_off": 0.03636943602388928,
+  "cv_offset": 0.05788826609520818,
+  "cv_ratio": 0.3728875711725298,
+  "offset_median": 2.778621918632507
+ },
+ "kernel-rectangular-matrix-workload": {
+  "n": 6,
+  "cv_dev": 0.06808222069766225,
+  "cv_off": 0.01865514536806002,
+  "cv_offset": 0.021036212095509023,
+  "cv_ratio": 0.06848499217788272,
+  "offset_median": 3.1426080160140994
+ },
+ "kernel-single-query-attention": {
+  "n": 6,
+  "cv_dev": 0.09298774375274146,
+  "cv_off": 0.022618458779601686,
+  "cv_offset": 0.014162325611948759,
+  "cv_ratio": 0.08637700050619128,
+  "offset_median": 7.502937889099121
+ }
+}
